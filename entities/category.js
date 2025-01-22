@@ -1,11 +1,18 @@
 class Category {
-    constructor(id, name) {
-      this.id = id;
-      this.name = name;
-      this.products = [];
-    }
-
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+    this.products = [];
   }
-  
-  module.exports = Category;
-  
+
+  addProduct(product) {
+    if (!this.products.includes(product)) {
+      this.products.push(product);
+    }
+  }
+    removeProduct(productId) {
+      this.products = this.products.filter(product => product.id !== productId);
+    }
+}
+
+module.exports = Category;

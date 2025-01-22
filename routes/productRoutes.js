@@ -3,6 +3,7 @@ const Product = require('../entities/product');
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 
+
 router.post('/', (req, res) => {
   const { name, price, stock } = req.body;
   const product = new Product(uuidv4(), name, price, stock);
@@ -32,10 +33,8 @@ router.delete('/:id', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    const products = req.db.products;
-    res.json(products);
-  });
+  const products = req.db.products;
+  res.json(products);
+});
 
-
-  
 module.exports = router;
