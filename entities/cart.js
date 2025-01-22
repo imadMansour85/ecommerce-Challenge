@@ -1,9 +1,14 @@
 class Cart {
-    constructor(id) {
-      this.id = id;
-      this.products = [];
-    }
-  
+  constructor(id) {
+    this.id = id;
+    this.products = [];
   }
-  
-  module.exports = Cart;
+
+  calculateTotal() {
+      this.total = this.products.reduce((sum, product) => {
+        return sum + product.price * product.quantity;
+      }, 0);
+    }
+}
+
+module.exports = Cart;
